@@ -1,0 +1,32 @@
+[
+  {
+    "id": "dr_karim_cardio",
+    "name": "ডাঃ করিম আহমেদ",
+    "designation": "সহযোগী অধ্যাপক, কার্ডিওলজি",
+    "specialty": "হৃদরোগ ও বাতজ্বর বিশেষজ্ঞ",
+    "certification": "MBBS, FCPS (Medicine), MD (Cardiology)",
+    "chamber_schedule": "শনি, সোম, বুধ",
+    "time": "সন্ধ্যা ৬:০০ - রাত ৯:০০ টা",
+    "image_url": "images/dr_karim.jpg" 
+  },
+  {
+    "id": "dr_fatema_neuro",
+    "name": "ডাঃ ফাতেমা বেগম",
+    "designation": "সিনিয়র কনসালটেন্ট, নিউরোলজি",
+    "specialty": "স্নায়ু ও মস্তিষ্কের রোগ বিশেষজ্ঞ",
+    "certification": "MBBS, MRCP (UK), MD (Neurology)",
+    "chamber_schedule": "রবি, মঙ্গল, বৃহস্পতি",
+    "time": "সকাল ১০:০০ - দুপুর ২:০০ টা",
+    "image_url": "images/dr_fatema.jpg" 
+  },
+  {
+    "id": "dr_rahman_ortho",
+    "name": "ডাঃ রহমান চৌধুরী",
+    "designation": "অধ্যাপক, অর্থোপেডিক্স",
+    "specialty": "হাড়, জোড় ও ট্রমা বিশেষজ্ঞ",
+    "certification": "MBBS, MS (Orthopaedics), FACS",
+    "chamber_schedule": "শনি, রবি, সোম, মঙ্গল",
+    "time": "বিকাল ৪:০০ - সন্ধ্যা ৭:০০ টা",
+    "image_url": "images/dr_rahman.jpg" 
+  }
+]
