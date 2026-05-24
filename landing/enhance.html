@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta name="google-site-verification" content="hvxVfEkTCmFm8vCmMxjPoJ42vKGV_-PsqfdExgOXNGA" />	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Credit Enhancement & Collection Calculator | Online Engine</title>
+    <meta name="description" content="Calculate your enhanced credit strategies and breakdown exact collection day metrics instantly. Easy to use online financial tools by Shohidul Islam.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Shohidul Islam">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Credit Enhancement & Collection Calculator Engine">
+    <meta property="og:description" content="Optimize credit strategies with our advanced formula metrics. Calculate dynamic collections and timelines instantly.">
+    <meta property="og:url" content="https://github.com/shohidulrpl/Enhancement-Calculator"> <meta property="og:site_name" content="Credit Enhancement Engine">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Credit Enhancement & Collection Calculator Engine">
+    <meta name="twitter:description" content="Optimize credit strategies with our advanced formula metrics. Calculate dynamic collections and timelines instantly.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&family=Barlow:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Credit Enhancement Engine",
+      "description": "An interactive web application to calculate enhanced financial outputs and track precise collection day structures.",
+      "applicationCategory": "BusinessApplication, FinancialApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "author": {
+        "@type": "Person",
+        "name": "Shohidul Islam"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <style>
+        /* ═══════════════════════════════════════════════
+           THEME TOKENS
+        ═══════════════════════════════════════════════ */
+        :root {
+            --bg:           #f0f2f7;
+            --bg2:          #e4e8f0;
+            --surface:      rgba(255,255,255,0.85);
+            --surface-solid:#ffffff;
+            --surface2:     rgba(255,255,255,0.55);
+            --border:       rgba(30,40,80,0.09);
+            --border-acc:   rgba(59,130,246,0.35);
+
+            --ink:          #0c1733;
+            --ink2:         #3d4f6e;
+            --ink3:         #7b8fb0;
+
+            --blue:         #2563eb;
+            --blue-glow:    rgba(37,99,235,0.18);
+            --blue-soft:    rgba(37,99,235,0.08);
+            --teal:         #0ea5e9;
+            --green:        #10b981;
+            --green-soft:   rgba(16,185,129,0.12);
+            --amber:        #f59e0b;
+
+            --result-grad:  linear-gradient(135deg, #1d4ed8 0%, #0ea5e9 100%);
+            --result-glow:  rgba(14,165,233,0.28);
+            --green-grad:   linear-gradient(135deg, #059669 0%, #10b981 100%);
+
+            --radius-card:  22px;
+            --radius-sm:    12px;
+            --shadow-card:  0 2px 4px rgba(12,23,51,0.03), 0 8px 32px rgba(12,23,51,0.07), inset 0 1px 0 rgba(255,255,255,0.7);
+            --shadow-float: 0 20px 60px rgba(37,99,235,0.22), 0 4px 12px rgba(37,99,235,0.15);
+        }
+
+        [data-theme="dark"] {
+            --bg:           #090d1a;
+            --bg2:          #0e1525;
+            --surface:      rgba(16,24,44,0.92);
+            --surface-solid:#111827;
+            --surface2:     rgba(255,255,255,0.04);
+            --border:       rgba(255,255,255,0.07);
+            --border-acc:   rgba(59,130,246,0.4);
+
+            --ink:          #e8eeff;
+            --ink2:         #8fa4cc;
+            --ink3:         #4b6080;
+
+            --blue:         #3b82f6;
+            --blue-glow:    rgba(59,130,246,0.22);
+            --blue-soft:    rgba(59,130,246,0.1);
+            --teal:         #38bdf8;
+            --green:        #34d399;
+            --green-soft:   rgba(52,211,153,0.1);
+            --amber:        #fbbf24;
+
+            --result-grad:  linear-gradient(135deg, #1e40af 0%, #0369a1 100%);
+            --result-glow:  rgba(59,130,246,0.3);
+            --green-grad:   linear-gradient(135deg, #065f46 0%, #059669 100%);
+
+            --shadow-card:  0 2px 4px rgba(0,0,0,0.2), 0 12px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05);
+            --shadow-float: 0 20px 60px rgba(59,130,246,0.3), 0 4px 20px rgba(59,130,246,0.2);
+        }
+
+        /* ═══════════════════════════════════════════════
+           RESET & BASE
+        ═══════════════════════════════════════════════ */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0; padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem 1rem 4rem;
+            position: relative;
+            overflow-x: hidden;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(80px);
+            transition: opacity 0.5s;
+        }
+        .orb-1 {
+            width: 560px; height: 560px;
+            background: radial-gradient(circle, rgba(37,99,235,0.13), transparent 70%);
+            top: -180px; left: -160px;
+        }
+        .orb-2 {
+            width: 480px; height: 480px;
+            background: radial-gradient(circle, rgba(16,185,129,0.1), transparent 70%);
+            bottom: -140px; right: -140px;
+        }
+        .orb-3 {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(14,165,233,0.08), transparent 70%);
+            top: 40%; left: 60%;
+        }
+
+        .mesh {
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 28px 28px;
+            opacity: 0.5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .brand {
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .brand-icon {
+            width: 36px; height: 36px;
+            background: var(--result-grad);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px var(--blue-glow);
+        }
+        .brand-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+        }
+        .brand-sub {
+            font-size: 0.7rem;
+            color: #B8860B;
+            font-weight: 600;
+            margin-top: 1px;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            border-right: 2px solid currentColor;
+            animation: typewriter 5s steps(22, end) infinite, blinkCaret 0.75s step-end infinite;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.35);
+        }
+
+        [data-theme="dark"] .brand-sub { color: #FFD700; }
+
+        @keyframes typewriter {
+            0%, 100% { width: 0; }
+            35%      { width: 22ch; }
+            75%      { width: 18ch; }
+            90%      { width: 0; }
+        }
+
+        @keyframes blinkCaret {
+            from, to { border-color: transparent; }
+            50%      { border-color: currentColor; }
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            cursor: pointer;
+            padding: 0.45rem 0.85rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s ease;
+            user-select: none;
+        }
+        .theme-toggle:hover { border-color: var(--border-acc); }
+        .toggle-track {
+            width: 36px; height: 20px;
+            background: var(--ink3);
+            border-radius: 50px;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+        [data-theme="dark"] .toggle-track { background: var(--blue); }
+        .toggle-thumb {
+            position: absolute;
+            width: 14px; height: 14px;
+            background: #fff;
+            border-radius: 50%;
+            top: 3px; left: 3px;
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        }
+        [data-theme="dark"] .toggle-thumb { transform: translateX(16px); }
+        .toggle-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--ink2);
+            width: 32px;
+        }
+
+        @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        .card {
+            border-radius: var(--radius-card);
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            position: relative;
+            z-index: 1;
+            background: conic-gradient(from var(--angle), #ff3366, #ff6633, #ffcc33, #33cc66, #3399ff, #9933ff, #ff3366);
+            animation: rotateRainbow 4s linear infinite;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 2px; 
+            background: var(--surface);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: calc(var(--radius-card) - 2px);
+            z-index: -1;
+            transition: background 0.4s ease;
+        }
+
+        @keyframes rotateRainbow {
+            0% { --angle: 0deg; }
+            100% { --angle: 360deg; }
+        }
+
+        .card-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.6rem;
+        }
+        .card-title .icon-badge {
+            width: 30px; height: 30px;
+            background: var(--blue-soft);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .field { margin-bottom: 1.1rem; }
+        .field-label {
+            font-size: 0.73rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--ink3);
+            margin-bottom: 0.45rem;
+            display: block;
+        }
+
+        .field-control {
+            width: 100%;
+            padding: 0.82rem 1.1rem;
+            font-size: 0.95rem;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--surface-solid);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--ink);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.3s;
+        }
+        [data-theme="dark"] .field-control { background: rgba(255,255,255,0.04); }
+        .field-control:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 4px var(--blue-glow);
+        }
+        .field-control::placeholder { color: var(--ink3); }
+        select.field-control { cursor: pointer; }
+        select.field-control option { background: #1a2540; color: #e8eeff; }
+        [data-theme="light"] select.field-control option { background: #ffffff; color: #0c1733; }
+
+        .btn-primary {
+            width: 100%;
+            padding: 0.95rem;
+            background: var(--result-grad);
+            border: none;
+            border-radius: var(--radius-sm);
+            color: #fff;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            box-shadow: 0 4px 16px var(--blue-glow);
+            transition: all 0.22s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        .btn-primary:hover::before { transform: translateX(100%); }
+        .btn-primary:hover {
+            box-shadow: 0 6px 24px var(--result-glow);
+            transform: translateY(-1px);
+        }
+        .btn-primary:active { transform: translateY(0); }
+
+        .result-hero {
+            display: none;
+            margin-top: 1.4rem;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            animation: heroReveal 0.55s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+
+        @keyframes heroReveal {
+            from { opacity: 0; transform: translateY(16px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .result-hero-strip {
+            background: var(--result-grad);
+            padding: 1.4rem 1.6rem 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .result-hero-strip::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .result-hero-strip::after {
+            content: '';
+            position: absolute;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
+            top: -60px; right: -40px;
+        }
+
+        .result-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.75);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            position: relative; z-index: 1;
+        }
+        .result-label::before {
+            content: '';
+            display: inline-block;
+            width: 6px; height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.5; transform: scale(0.7); }
+        }
+
+        .result-value-wrap {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            position: relative; z-index: 1;
+        }
+
+        .result-currency {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0.35rem;
+        }
+
+        .result-number {
+            font-family: 'Barlow', 'DM Sans', sans-serif;
+            font-size: clamp(2.4rem, 7vw, 3.2rem);
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 0.01em;
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+
+        .result-meta-bar {
+            background: var(--surface-solid);
+            padding: 1rem 1.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            border-top: 1px solid var(--border);
+        }
+        [data-theme="dark"] .result-meta-bar { background: rgba(255,255,255,0.03); }
+
+        .formula-chip { display: flex; align-items: center; gap: 0.5rem; }
+        .formula-icon {
+            width: 28px; height: 28px;
+            background: var(--blue-soft);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .formula-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--ink2);
+            line-height: 1.4;
+        }
+        .formula-text strong {
+            display: block;
+            color: var(--blue);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 1px;
+        }
+
+        .copy-btn {
+            padding: 0.4rem 0.85rem;
+            background: var(--blue-soft);
+            border: 1px solid var(--border-acc);
+            border-radius: 8px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--blue);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .copy-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+        .copy-btn.copied { background: var(--green); color: #fff; border-color: var(--green); }
+
+        .btn-reset {
+            width: 100%;
+            margin-top: 0.75rem;
+            padding: 0.75rem;
+            background: transparent;
+            border: 1.5px solid rgba(239,68,68,0.35);
+            border-radius: var(--radius-sm);
+            color: #f87171;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition: all 0.22s ease;
+        }
+        .btn-reset:hover {
+            background: rgba(239,68,68,0.1);
+            border-color: #f87171;
+            color: #fca5a5;
+        }
+
+        .accordion-trigger {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.4rem;
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            cursor: pointer;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--ink);
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s ease;
+        }
+        .accordion-trigger:hover {
+            border-color: var(--border-acc);
+            box-shadow: 0 4px 20px var(--blue-glow);
+        }
+        .accordion-trigger.open { border-radius: var(--radius-card) var(--radius-card) 0 0; border-bottom-color: transparent; }
+
+        .accordion-left { display: flex; align-items: center; gap: 0.6rem; }
+        .acc-badge {
+            width: 28px; height: 28px;
+            background: var(--green-soft);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem;
+        }
+        .acc-arrow {
+            width: 28px; height: 28px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--surface2);
+            border-radius: 8px;
+            font-size: 0.7rem;
+            color: var(--ink3);
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        .accordion-trigger.open .acc-arrow { transform: rotate(180deg); }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .accordion-inner {
+            background: var(--surface);
+            backdrop-filter: blur(24px);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 var(--radius-card) var(--radius-card);
+            padding: 1.75rem 2rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .age-result {
+            display: none;
+            margin-top: 1.4rem;
+            animation: heroReveal 0.5s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+
+        .age-result-title {
+            text-align: center;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--ink3);
+            margin-bottom: 1rem;
+        }
+
+        .age-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .age-tile {
+            background: var(--surface-solid);
+            border: 1.5px solid var(--border);
+            border-radius: 16px;
+            padding: 1.25rem 0.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        [data-theme="dark"] .age-tile { background: rgba(255,255,255,0.03); }
+
+        .age-tile.highlight {
+            border-color: var(--blue);
+            background: var(--blue-soft);
+            box-shadow: 0 4px 16px var(--blue-glow);
+        }
+
+        .age-tile-num {
+            font-family: 'Barlow', 'DM Sans', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--blue);
+            line-height: 1;
+            letter-spacing: 0.01em;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .age-tile-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink3);
+            margin-top: 0.4rem;
+        }
+
+        .total-bar {
+            background: var(--green-grad);
+            border-radius: 14px;
+            padding: 1.1rem 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(16,185,129,0.28);
+        }
+
+        .total-bar-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            opacity: 0.85;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
+
+        .total-bar-num {
+            font-family: 'Barlow', 'DM Sans', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 900;
+            letter-spacing: 0.01em;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* SEO HELPER TEXT BLOCK */
+        .seo-content {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--ink2);
+        }
+        .seo-content h1, .seo-content h2 {
+            font-family: 'Syne', sans-serif;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+        .seo-content h1 { font-size: 1.2rem; }
+        .seo-content h2 { font-size: 1rem; margin-top: 1rem; }
+        .seo-content p { margin-bottom: 0.75rem; }
+
+    </style>
+</head>
+<body>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="mesh"></div>
+
+    <main class="container">
+
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-icon">📊</div>
+                <div>
+                    <div class="brand-name">Credit Enhancement Engine</div>
+                    <div class="brand-sub">Made by Shohidul Islam</div>
+                </div>
+            </div>
+            <div class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+                <span class="toggle-label" id="themeLabel">Dark</span>
+                <div class="toggle-track"><div class="toggle-thumb"></div></div>
+            </div>
+        </header>
+
+        <section class="card">
+            <h2 class="card-title">
+                <span class="icon-badge">⚡</span>
+                Credit Enhancement Calculator
+            </h2>
+
+            <div class="field">
+                <label class="field-label" for="averageAmount">Average Value</label>
+                <input class="field-control" type="number" id="averageAmount"
+                       placeholder="Enter last 90 days average..." min="0" step="0.01">
+            </div>
+
+            <div class="field">
+                <label class="field-label" for="daysSelector">Days Constraint</label>
+                <select class="field-control" id="daysSelector">
+                    <option value="45" selected>45 Days</option>
+                    <option value="60">60 Days</option>
+                    <option value="30">30 Days</option>
+                </select>
+            </div>
+
+            <button class="btn-primary" onclick="runCreditExecution()">
+                <span>⚡</span> Enhancement Calculate
+            </button>
+
+            <div class="result-hero" id="creditOutputPanel">
+                <div class="result-hero-strip">
+                    <div class="result-label">Enhanced Output Strategy</div>
+                    <div class="result-value-wrap">
+                        <span class="result-currency">৳</span>
+                        <span class="result-number" id="creditValue">0.00</span>
+                    </div>
+                </div>
+                <div class="result-meta-bar">
+                    <div class="formula-chip">
+                        <div class="formula-icon">ƒ</div>
+                        <div class="formula-text">
+                            <strong>Formula</strong>
+                            <span id="formulaMeta">—</span>
+                        </div>
+                    </div>
+                    <button class="copy-btn" id="copyBtn" onclick="copyResult()">Copy</button>
+                </div>
+            </div>
+
+            <button class="btn-reset" id="resetBtn" onclick="resetCalculator()" style="display:none;">
+                ↺ Reset
+            </button>
+        </section>
+
+        <section>
+            <button class="accordion-trigger" id="accTrigger" onclick="toggleAccordion()">
+                <span class="accordion-left">
+                    <span class="acc-badge">📅</span>
+                    Collection Calculator
+                </span>
+                <span class="acc-arrow" id="accArrow">▼</span>
+            </button>
+
+            <div class="accordion-body" id="accBody">
+                <div class="accordion-inner">
+                    <div class="field">
+                        <label class="field-label" for="birthDate">Date of Collection</label>
+                        <input class="field-control" type="date" id="birthDate" min="1950-01-01" max="2050-12-31">
+                    </div>
+
+                    <div class="field">
+                        <label class="field-label" for="differenceDate">Date of Difference</label>
+                        <input class="field-control" type="date" id="differenceDate">
+                    </div>
+
+                    <button class="btn-primary" onclick="runAgeExecution()" style="background: var(--green-grad); box-shadow: 0 4px 14px rgba(16,185,129,0.25);">
+                        <span>📅</span> Calculate Days
+                    </button>
+
+                    <div class="age-result" id="photoResultView">
+                        <div class="age-result-title">Date Breakdown</div>
+                        <div class="age-grid">
+                            <div class="age-tile">
+                                <div class="age-tile-num" id="boxYears">0</div>
+                                <div class="age-tile-label">Years</div>
+                            </div>
+                            <div class="age-tile highlight">
+                                <div class="age-tile-num" id="boxMonths">0</div>
+                                <div class="age-tile-label">Months</div>
+                            </div>
+                            <div class="age-tile">
+                                <div class="age-tile-num" id="boxDays">0</div>
+                                <div class="age-tile-label">Days</div>
+                            </div>
+                        </div>
+                        <div class="total-bar">
+                            <span class="total-bar-label">Total Days Go On</span>
+                            <span class="total-bar-num" id="boxTotalDays">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <article class="seo-content">
+            <h1>About the Credit Enhancement & Collection Engine</h1>
+            <p>Welcome to the ultimate automated utility for projecting business limits. This tool helps financial planners optimize and adjust their credit models instantly based on dynamic days constraints.</p>
+            <h2>How to calculate credit metrics?</h2>
+            <p>Simply insert your rolling 90-day dynamic average asset values, choose your target constraint lifecycle (30, 45, or 60 days), and analyze the calculated tactical projection instantly.</p>
+        </article>
+
+    </main>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const today = new Date();
+            const y = today.getFullYear();
+            const m = String(today.getMonth() + 1).padStart(2,'0');
+            const d = String(today.getDate()).padStart(2,'0');
+            document.getElementById('differenceDate').value = `${y}-${m}-${d}`;
+        });
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            document.getElementById('themeLabel').textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        function toggleAccordion() {
+            const trigger = document.getElementById('accTrigger');
+            const body    = document.getElementById('accBody');
+            const isOpen  = trigger.classList.contains('open');
+
+            if (isOpen) {
+                trigger.classList.remove('open');
+                body.style.maxHeight = '0px';
+            } else {
+                trigger.classList.add('open');
+                body.style.maxHeight = body.scrollHeight + 600 + 'px';
+            }
+        }
+
+        let lastResult = 0;
+
+        function runCreditExecution() {
+            const average = parseFloat(document.getElementById('averageAmount').value);
+            const days    = document.getElementById('daysSelector').value;
+            const panel   = document.getElementById('creditOutputPanel');
+            const numEl   = document.getElementById('creditValue');
+            const fmtEl   = document.getElementById('formulaMeta');
+            const copyBtn = document.getElementById('copyBtn');
+
+            if (isNaN(average) || average < 0) {
+                shakeField('averageAmount');
+                return;
+            }
+
+            let result = 0, formula = '';
+            if (days === '45')      { result = (average * 1.5) * 2.5; formula = '(Average × 1.5) × 2.5'; }
+            else if (days === '60') { result = (average * 2)   * 2.5; formula = '(Average × 2) × 2.5';   }
+            else if (days === '30') { result = average * 2.5;          formula = 'Average × 2.5';          }
+
+            lastResult = result;
+            copyBtn.textContent = 'Copy';
+            copyBtn.classList.remove('copied');
+            document.getElementById('resetBtn').style.display = 'block';
+
+            panel.style.display = 'block';
+            panel.style.animation = 'none';
+            void panel.offsetWidth;
+            panel.style.animation = '';
+
+            fmtEl.textContent = formula;
+            animateNumber(numEl, result);
+
+            const body = document.getElementById('accBody');
+            if (document.getElementById('accTrigger').classList.contains('open')) {
+                body.style.maxHeight = body.scrollHeight + 600 + 'px';
+            }
+        }
+
+        function animateNumber(el, target) {
+            const duration = 700;
+            const start = performance.now();
+            const fmt = n => Math.round(n).toLocaleString();
+
+            function step(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 4);
+                el.textContent = fmt(target * ease);
+                if (progress < 1) requestAnimationFrame(step);
+                else el.textContent = Math.round(target).toLocaleString();
+            }
+            requestAnimationFrame(step);
+        }
+
+        function copyResult() {
+            const val = Math.round(lastResult).toLocaleString();
+            navigator.clipboard.writeText(val).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.textContent = '✓ Copied';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        function resetCalculator() {
+            document.getElementById('averageAmount').value = '';
+            document.getElementById('daysSelector').selectedIndex = 0;
+            const panel = document.getElementById('creditOutputPanel');
+            panel.style.animation = 'none';
+            panel.style.opacity = '0';
+            panel.style.transform = 'translateY(8px)';
+            setTimeout(() => { panel.style.display = 'none'; panel.style.opacity = ''; panel.style.transform = ''; }, 250);
+            document.getElementById('resetBtn').style.display = 'none';
+            lastResult = 0;
+            document.getElementById('averageAmount').focus();
+        }
+
+        function shakeField(id) {
+            const el = document.getElementById(id);
+            el.style.animation = 'none';
+            el.style.borderColor = '#ef4444';
+            el.style.boxShadow = '0 0 0 4px rgba(239,68,68,0.15)';
+            setTimeout(() => {
+                el.style.borderColor = '';
+                el.style.boxShadow = '';
+            }, 1200);
+            el.focus();
+        }
+
+        function runAgeExecution() {
+            const dob  = document.getElementById('birthDate').value;
+            const diff = document.getElementById('differenceDate').value;
+            const res  = document.getElementById('photoResultView');
+
+            if (!dob || !diff) { alert('Please fill both date fields.'); return; }
+
+            const d1 = new Date(dob), d2 = new Date(diff);
+            if (d2 < d1) { alert('Difference date must be after collection date.'); return; }
+
+            let years  = d2.getFullYear() - d1.getFullYear();
+            let months = d2.getMonth()    - d1.getMonth();
+            let days   = d2.getDate()     - d1.getDate();
+
+            if (days < 0) {
+                months--;
+                days += new Date(d2.getFullYear(), d2.getMonth(), 0).getDate();
+            }
+            if (months < 0) { years--; months += 12; }
+
+            const totalDays = Math.floor((d2 - d1) / 86400000);
+
+            document.getElementById('boxYears').textContent    = years;
+            document.getElementById('boxMonths').textContent   = months;
+            document.getElementById('boxDays').textContent     = days;
+            document.getElementById('boxTotalDays').textContent = totalDays.toLocaleString();
+
+            res.style.display = 'block';
+            res.style.animation = 'none';
+            void res.offsetWidth;
+            res.style.animation = '';
+
+            const body = document.getElementById('accBody');
+            body.style.maxHeight = body.scrollHeight + 400 + 'px';
+        }
+    </script>
+</body>
+</html>
